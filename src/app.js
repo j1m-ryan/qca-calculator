@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <h1>QCA Calculator</h1>
-      <p>QCA is {qca}</p>
+      <p>{totalSubjects === 0 ? "Select your grades" : `QCA is ${qca}`}</p>
       <p>Number of subjects: {totalSubjects}</p>
       <p>Total score {totalScore}</p>
       {Object.keys(grades).map((key) => (
