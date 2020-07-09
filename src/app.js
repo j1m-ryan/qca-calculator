@@ -1,20 +1,6 @@
 import React, { useState } from "react";
-import Button from "./components/button";
+import Year from "./components/year";
 import grades from "./grades";
-
-const Year = ({ year, qcas, handleQCA, totalSubjectsPerYear }) => {
-  console.log("total subjects", totalSubjectsPerYear);
-  return (
-    <>
-      <h2>Results from year {year}</h2>
-      <p>Yearly QCA: {qcas[year - 1]}</p>
-      <p>Total Subjects: {totalSubjectsPerYear[year - 1]}</p>
-      {Object.keys(grades).map((key) => (
-        <Button grade={key} onClick={handleQCA(key, year)} key={key} />
-      ))}
-    </>
-  );
-};
 
 const App = () => {
   const [totalScore, setTotalScore] = useState(0);
@@ -22,7 +8,7 @@ const App = () => {
   const [totalSubjectsPerYear, setTotalSubjectsPerYear] = useState(
     new Array(4).fill(0)
   );
-  const [qcas, setQcas] = useState([]);
+  const [qcas, setQcas] = useState(new Array(4).fill(0));
   const qca = totalScore / totalSubjects;
   const handleQCA = (grade, year) => () => {
     setTotalScore(totalScore + grades[grade]);
@@ -30,9 +16,9 @@ const App = () => {
     let totalSubjectsPerYearCopy = [...totalSubjectsPerYear];
     totalSubjectsPerYearCopy[year - 1] += 1;
     setTotalSubjectsPerYear(totalSubjectsPerYearCopy);
-    let arrayCopy = [...qcas];
-    arrayCopy[year - 1] = grade;
-    setQcas(arrayCopy);
+    let qcasCopy = [...qcas];
+    qcasCopy[year - 1] = grades[grade] + qcasCopy[year - 1];
+    setQcas(qcasCopy);
   };
   return (
     <>
@@ -40,13 +26,14 @@ const App = () => {
       <p>{totalSubjects === 0 ? "Select your grades" : `QCA is ${qca}`}</p>
       <p>Total number of subjects: {totalSubjects}</p>
       <p>Total score {totalScore}</p>
-
-      <Year
-        year={1}
-        qcas={qcas}
-        handleQCA={handleQCA}
-        totalSubjectsPerYear={totalSubjectsPerYear}
-      />
+      {totalSubjectsPerYear.map((s, i) => (
+        <Year
+          year={i + 1}
+          qcas={qcas}
+          handleQCA={handleQCA}
+          totalSubjectsPerYear={totalSubjectsPerYear}
+        />
+      ))}
     </>
   );
 };
