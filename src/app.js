@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Year from "./components/year";
 import grades from "./grades";
-
+import "./index.css";
 const App = () => {
   const [totalScore, setTotalScore] = useState(0);
   const [totalSubjects, setTotalSubjects] = useState(0);
@@ -36,22 +36,30 @@ const App = () => {
   };
   return (
     <>
-      <h1>QCA Calculator</h1>
-      <p>
-        {totalSubjects === 0 ? "Select your grades" : `Overall QCA is ${qca}`}
-      </p>
-      <p>Total number of subjects: {totalSubjects}</p>
-      {totalSubjectsPerYear.map((s, i) => (
-        <Year
-          key={i}
-          year={i + 1}
-          qcas={qcas}
-          handleQCA={handleQCA}
-          totalSubjectsPerYear={totalSubjectsPerYear}
-          gradeStrings={gradeStrings}
-          clearYear={clearYear}
-        />
-      ))}
+      <div className="header">
+        <img src="./ul.png" alt="ul logo" id="logo" />
+        <h1 id="title">QCA Calculator</h1>
+        <p></p>
+      </div>
+      <div className="topInfo">
+        <p>
+          {totalSubjects === 0 ? "Select your grades" : `Overall QCA is ${qca}`}
+        </p>
+        <p>Total number of subjects: {totalSubjects}</p>
+      </div>
+      <div className="yearsContainer">
+        {totalSubjectsPerYear.map((s, i) => (
+          <Year
+            key={i}
+            year={i + 1}
+            qcas={qcas}
+            handleQCA={handleQCA}
+            totalSubjectsPerYear={totalSubjectsPerYear}
+            gradeStrings={gradeStrings}
+            clearYear={clearYear}
+          />
+        ))}
+      </div>
     </>
   );
 };

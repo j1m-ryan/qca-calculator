@@ -1,0 +1,72 @@
+.yearsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Montserrat", sans-serif;
+}
+.year {
+  display: flex;
+  flex-direction: column;
+}
+
+#title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #01a550;
+  margin-right: 120px;
+}
+
+h2 {
+  color: #055031;
+}
+.keys {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+  grid-gap: 1rem;
+}
+.btn {
+  transition-duration: 0.4s;
+  background-color: #01a550;
+  border: 2px solid #4caf50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: white;
+  color: #01a550;
+}
+.btn:focus {
+  transition-duration: 0.4s;
+  background-color: #01a550;
+  border: 2px solid #4caf50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+.topInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+}
+#logo {
+  height: 50px;
+  width: auto;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
