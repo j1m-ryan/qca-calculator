@@ -7,8 +7,8 @@ const Year = ({
   qcas,
   handleQCA,
   totalSubjectsPerYear,
-  gradeStrings,
   clearYear,
+  eachGradePerYear,
 }) => {
   return (
     <div className="year">
@@ -18,7 +18,7 @@ const Year = ({
           ? `Enter your grades for year ${year}`
           : `Yearly QCA: ${qcas[year - 1] / totalSubjectsPerYear[year - 1]}`}
       </p>
-      <p>Results : {gradeStrings[year - 1]}</p>
+      <p>Results : {eachGradePerYear[year - 1].map((g) => g + " ")}</p>
       <p>Total Subjects: {totalSubjectsPerYear[year - 1]}</p>
       <div className="keys">
         {Object.keys(grades).map((key) => (

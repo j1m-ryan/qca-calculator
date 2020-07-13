@@ -5,14 +5,18 @@ import "./index.css";
 const App = () => {
   const [totalScore, setTotalScore] = useState(0);
   const [totalSubjects, setTotalSubjects] = useState(0);
+  const [eachGradePerYear, setEachGradePerYear] = useState([[], [], [], []]);
   const [totalSubjectsPerYear, setTotalSubjectsPerYear] = useState(
     new Array(4).fill(0)
   );
   const [qcas, setQcas] = useState(new Array(4).fill(0));
-  const [gradeStrings, setgradeStrings] = useState(new Array(4).fill(""));
 
   const qca = totalScore / totalSubjects;
   const handleQCA = (grade, year) => () => {
+    let eachGradePerYearCopy = [...eachGradePerYear];
+
+    eachGradePerYearCopy[year - 1].push(grade);
+    setEachGradePerYear(eachGradePerYearCopy);
     setTotalScore(totalScore + grades[grade]);
     setTotalSubjects(totalSubjects + 1);
     let totalSubjectsPerYearCopy = [...totalSubjectsPerYear];
@@ -21,18 +25,15 @@ const App = () => {
     let qcasCopy = [...qcas];
     qcasCopy[year - 1] = grades[grade] + qcasCopy[year - 1];
     setQcas(qcasCopy);
-    let gradeStringsCopy = [...gradeStrings];
-    gradeStringsCopy[year - 1] += grade + " ";
-    setgradeStrings(gradeStringsCopy);
   };
 
   const clearYear = (year) => () => {
     let totalSubjectsPerYearCopy = [...totalSubjectsPerYear];
     totalSubjectsPerYearCopy[year - 1] = 0;
     setTotalSubjectsPerYear(totalSubjectsPerYearCopy);
-    let gradeStringsCopy = [...gradeStrings];
-    gradeStringsCopy[year - 1] = "";
-    setgradeStrings(gradeStringsCopy);
+    let eachGradePerYearCopy = [...eachGradePerYear];
+    eachGradePerYearCopy[year - 1] = [];
+    setEachGradePerYear(eachGradePerYearCopy);
   };
   return (
     <>
@@ -55,8 +56,8 @@ const App = () => {
             qcas={qcas}
             handleQCA={handleQCA}
             totalSubjectsPerYear={totalSubjectsPerYear}
-            gradeStrings={gradeStrings}
             clearYear={clearYear}
+            eachGradePerYear={eachGradePerYear}
           />
         ))}
       </div>
