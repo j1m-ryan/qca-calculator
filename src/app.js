@@ -4,27 +4,31 @@ import grades from "./grades";
 import "./index.css";
 const App = () => {
   const [totalScore, setTotalScore] = useState(0);
-  const [totalSubjects, setTotalSubjects] = useState(0);
   const [eachGradePerYear, setEachGradePerYear] = useState([[], [], [], []]);
   const [totalSubjectsPerYear, setTotalSubjectsPerYear] = useState(
     new Array(4).fill(0)
   );
-  const [qcas, setQcas] = useState(new Array(4).fill(0));
+  const [tooManySubjestsInYear, setTooManySubjectsInYear] = useState(
+    Array(4).fill(false)
+  );
 
-  const qca = totalScore / totalSubjects;
   const handleQCA = (grade, year) => () => {
+    if (totalSubjectsPerYear[year - 1] === 10) {
+      let tooManySubjestsInYearCopy = [...tooManySubjestsInYear];
+      tooManySubjestsInYearCopy[year - 1] = true;
+      setTooManySubjectsInYear(tooManySubjestsInYearCopy);
+      setTimeout(() => {
+        setTooManySubjectsInYear([false, false, false, false]);
+      }, 2000);
+      return;
+    }
     let eachGradePerYearCopy = [...eachGradePerYear];
-
     eachGradePerYearCopy[year - 1].push(grade);
     setEachGradePerYear(eachGradePerYearCopy);
     setTotalScore(totalScore + grades[grade]);
-    setTotalSubjects(totalSubjects + 1);
     let totalSubjectsPerYearCopy = [...totalSubjectsPerYear];
     totalSubjectsPerYearCopy[year - 1] += 1;
     setTotalSubjectsPerYear(totalSubjectsPerYearCopy);
-    let qcasCopy = [...qcas];
-    qcasCopy[year - 1] = grades[grade] + qcasCopy[year - 1];
-    setQcas(qcasCopy);
   };
 
   const clearYear = (year) => () => {
@@ -35,6 +39,17 @@ const App = () => {
     eachGradePerYearCopy[year - 1] = [];
     setEachGradePerYear(eachGradePerYearCopy);
   };
+  let totalPoints = 0;
+  let totalSubjects = 0;
+
+  eachGradePerYear.forEach((y) => {
+    y.forEach((g) => {
+      totalPoints += grades[g];
+      totalSubjects++;
+    });
+  });
+  const qca = totalPoints / totalSubjects;
+
   return (
     <>
       <div className="header">
@@ -44,20 +59,22 @@ const App = () => {
       </div>
       <div className="topInfo">
         <p>
-          {totalSubjects === 0 ? "Select your grades" : `Overall QCA is ${qca}`}
+          {totalPoints === 0
+            ? "Select your grades"
+            : `Overall QCA is ${qca.toFixed(2)}`}
         </p>
-        <p>Total number of subjects: {totalSubjects}</p>
+        <p>Total number of subjects: {0}</p>
       </div>
       <div className="yearsContainer">
         {totalSubjectsPerYear.map((s, i) => (
           <Year
             key={i}
             year={i + 1}
-            qcas={qcas}
             handleQCA={handleQCA}
             totalSubjectsPerYear={totalSubjectsPerYear}
             clearYear={clearYear}
             eachGradePerYear={eachGradePerYear}
+            tooManySubjestsInYear={tooManySubjestsInYear}
           />
         ))}
       </div>
