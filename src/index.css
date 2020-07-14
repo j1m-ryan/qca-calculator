@@ -1,6 +1,7 @@
 .yearsContainer {
-  display: flex;
-  justify-content: space-evenly;
+  display: inline-grid;
+  grid-template-columns: 4vw 20vw 4vw 20vw 4vw 20vw 4vw 20vw 4vw;
+  grid-template-rows: auto;
   font-family: "Montserrat", sans-serif;
 }
 .year {
@@ -24,8 +25,9 @@ h2 {
 }
 .keys {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
-  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 40px);
+  grid-template-rows: 20px 20px 20px;
+  grid-gap: 5px;
 }
 .btn {
   transition-duration: 0.4s;

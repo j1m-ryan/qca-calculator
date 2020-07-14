@@ -20,7 +20,7 @@ const Year = ({
       ? 0
       : totalPoints / totalSubjectsPerYear[year - 1];
   return (
-    <div className="year">
+    <div className="year" style={{ gridColumnStart: year * 2 }}>
       <h2>Year {year}</h2>
       <p>
         {totalSubjectsPerYear[year - 1] === 0
