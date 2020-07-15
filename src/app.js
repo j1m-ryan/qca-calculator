@@ -18,7 +18,7 @@ const App = () => {
       tooManySubjestsInYearCopy[year - 1] = true;
       setTooManySubjectsInYear(tooManySubjestsInYearCopy);
       setTimeout(() => {
-        setTooManySubjectsInYear([false, false, false, false]);
+        setTooManySubjectsInYear(Array(4).fill(false));
       }, 2000);
       return;
     }
