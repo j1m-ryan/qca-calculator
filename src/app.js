@@ -39,6 +39,16 @@ const App = () => {
     eachGradePerYearCopy[year - 1] = [];
     setEachGradePerYear(eachGradePerYearCopy);
   };
+
+  const clearLastSubject = (year) => () => {
+    if (totalSubjectsPerYear[year - 1] === 0) return;
+    let eachGradePerYearCopy = [...eachGradePerYear];
+    eachGradePerYearCopy[year - 1].pop();
+    setEachGradePerYear(eachGradePerYearCopy);
+    let totalSubjectsPerYearCopy = [...totalSubjectsPerYear];
+    totalSubjectsPerYearCopy[year - 1]--;
+    setTotalSubjectsPerYear(totalSubjectsPerYearCopy);
+  };
   let totalPoints = 0;
   let totalSubjects = 0;
 
@@ -75,6 +85,7 @@ const App = () => {
             clearYear={clearYear}
             eachGradePerYear={eachGradePerYear}
             tooManySubjestsInYear={tooManySubjestsInYear}
+            clearLastSubject={clearLastSubject}
           />
         ))}
       </div>

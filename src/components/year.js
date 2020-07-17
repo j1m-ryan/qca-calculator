@@ -10,6 +10,7 @@ const Year = ({
   clearYear,
   eachGradePerYear,
   tooManySubjestsInYear,
+  clearLastSubject,
 }) => {
   let totalPoints = 0;
   eachGradePerYear[year - 1].forEach((element) => {
@@ -28,12 +29,15 @@ const Year = ({
             ? `Enter your grades for year ${year}`
             : `Yearly QCA: ${qca.toFixed(2)}`}
         </p>
-        <p>Results : {eachGradePerYear[year - 1].map((g) => g + " ")}</p>
+        <p>Results :</p>
+        <p>{eachGradePerYear[year - 1].map((g) => g + " ")}&nbsp;</p>
         <p>Total Subjects: {totalSubjectsPerYear[year - 1]}</p>
         <div className="keys">
           {Object.keys(grades).map((key) => (
             <Button grade={key} onClick={handleQCA(key, year)} key={key} />
           ))}
+          <Button onClick={clearLastSubject(year)} grade={"<-"} />
+
           <Button onClick={clearYear(year)} grade={"CLR"} />
         </div>
         <TooManySubjectsError

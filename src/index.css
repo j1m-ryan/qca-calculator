@@ -88,24 +88,34 @@ h2 {
 .clr,
 .clr:focus,
 .clr.focus {
-  background-color: orange;
-  border: 2px solid orange;
+  background-color: rgb(219, 51, 51);
+  border: 2px solid rgb(219, 51, 51);
   padding-left: 4px;
 }
 .clr:hover {
-  color: orange;
+  color: rgb(219, 51, 51);
+}
+.bk,
+.bk:focus,
+.bk.focus {
+  background-color: rgb(253, 185, 58);
+  border: 2px solid rgb(253, 185, 58);
+  padding-left: 4px;
+}
+.bk:hover {
+  color: rgb(253, 185, 58);
 }
 .errorText {
   color: red;
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
   body {
-    background-color: lightblue;
+    background: #01a550;
   }
   .yearsContainer {
-    background-color: brown;
     display: grid;
-    grid-template-columns: 4vw 20vw 4vw 20vw 4vw;
-    grid-template-rows: repeat(4, 200px);
+    grid-template-columns: 4vw 20vw 4vw 20vw 4vw 20vw 4vw 20vw 4vw;
+    grid-template-rows: auto;
+    font-family: "Montserrat", sans-serif;
   }
 }
