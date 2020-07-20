@@ -108,14 +108,17 @@ h2 {
 .errorText {
   color: red;
 }
-@media only screen and (max-width: 600px) {
-  body {
-    background: #01a550;
-  }
+@media only screen and (max-width: 1135px) {
   .yearsContainer {
-    display: grid;
-    grid-template-columns: 4vw 20vw 4vw 20vw 4vw 20vw 4vw 20vw 4vw;
-    grid-template-rows: auto;
-    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .year {
+    flex: 1 0 34%;
+    margin: 20px;
+    margin-bottom: 100px;
   }
 }
