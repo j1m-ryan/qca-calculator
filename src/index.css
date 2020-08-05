@@ -112,8 +112,8 @@ h2 {
   .yearsContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
   }
   .year {

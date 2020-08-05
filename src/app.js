@@ -73,7 +73,7 @@ const App = () => {
 						? "Select your grades"
 						: `Overall QCA is ${qca.toFixed(2)}`}
 				</p>
-				<p>Total number of subjects: {0}</p>
+				<p>Total number of subjects: {totalSubjects}</p>
 			</div>
 			<div className="yearsContainer">
 				{totalSubjectsPerYear.map((s, i) => (
