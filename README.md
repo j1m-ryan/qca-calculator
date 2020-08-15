@@ -1,10 +1,10 @@
-# qca-calulator
+# :mortar_board: qca-calulator
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)  
 A QCA calulator for University of Limerick grades in React.js.  
 
-![Progam being used](images/program.gif)
-
+![Progam being used](images/program.gif)  
+* [Live site](https://j1m-ryan.github.io/qca-calculator/)
 ## :computer: Running Locally  
 
 1. Clone or download the project  
