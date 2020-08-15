@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/qca-calulator/static/css/main.963f1a01.chunk.css",
+    "main.js": "/qca-calulator/static/js/main.6f7c199b.chunk.js",
+    "main.js.map": "/qca-calulator/static/js/main.6f7c199b.chunk.js.map",
+    "runtime-main.js": "/qca-calulator/static/js/runtime-main.61bf56dc.js",
+    "runtime-main.js.map": "/qca-calulator/static/js/runtime-main.61bf56dc.js.map",
+    "static/js/2.2fccf3a2.chunk.js": "/qca-calulator/static/js/2.2fccf3a2.chunk.js",
+    "static/js/2.2fccf3a2.chunk.js.map": "/qca-calulator/static/js/2.2fccf3a2.chunk.js.map",
+    "index.html": "/qca-calulator/index.html",
+    "precache-manifest.e8f9ef3ff169ff3bd31f7a3578ece490.js": "/qca-calulator/precache-manifest.e8f9ef3ff169ff3bd31f7a3578ece490.js",
+    "service-worker.js": "/qca-calulator/service-worker.js",
+    "static/css/main.963f1a01.chunk.css.map": "/qca-calulator/static/css/main.963f1a01.chunk.css.map",
+    "static/js/2.2fccf3a2.chunk.js.LICENSE.txt": "/qca-calulator/static/js/2.2fccf3a2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61bf56dc.js",
+    "static/js/2.2fccf3a2.chunk.js",
+    "static/css/main.963f1a01.chunk.css",
+    "static/js/main.6f7c199b.chunk.js"
+  ]
+}
