@@ -11,6 +11,8 @@ A QCA calulator for University of Limerick grades in React.js.
 2. Run the command `npm install` in the project directory  
 3. Then run `npm start` to launch the web app in your web browser  
 
+Alternatively use the docker image with `docker run -p 3000:80 jimryan/qca`  
+
 ## :keyboard: Usage
 
 * Select your grades in each year
