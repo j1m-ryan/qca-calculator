@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
-import Year from './components/year';
-import grades from './grades';
-import './index.css';
+import React, { useState } from "react";
+import Year from "./components/year";
+import grades from "./grades";
+import "./index.css";
 const App = () => {
   const [totalScore, setTotalScore] = useState(0);
   const [eachGradePerYear, setEachGradePerYear] = useState([[], [], [], []]);
   const [totalSubjectsPerYear, setTotalSubjectsPerYear] = useState(
-      new Array(4).fill(0),
+    new Array(4).fill(0)
   );
   const [tooManySubjestsInYear, setTooManySubjectsInYear] = useState(
-      Array(4).fill(false),
+    Array(4).fill(false)
   );
 
   const handleQCA = (grade, year) => () => {
@@ -63,15 +63,13 @@ const App = () => {
   return (
     <>
       <div className="header">
-        <img src="./ul.png" alt="ul logo" id="logo" />
         <h1 id="title">QCA Calculator</h1>
-        <p></p>
       </div>
       <div className="topInfo">
         <p>
-          {totalPoints === 0 ?
-            'Select your grades' :
-            `Overall QCA is ${qca.toFixed(2)}`}
+          {totalPoints === 0
+            ? "Select your grades"
+            : `Overall QCA is ${qca.toFixed(2)}`}
         </p>
         <p>Total number of subjects: {totalSubjects}</p>
       </div>
